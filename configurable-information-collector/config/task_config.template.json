@@ -1,0 +1,14 @@
+{
+  "task_name": "填写本次收集任务名称",
+  "industry_fields": ["填写行业或领域"],
+  "collection_scope": ["填写要收集的主题、问题或信息类型"],
+  "start_date": "YYYY-MM-DD",
+  "end_date": "YYYY-MM-DD",
+  "regions": ["填写国家、地区、市场或地域范围"],
+  "keywords": [],
+  "source_domains": [],
+  "source_urls": [],
+  "exclude_terms": [],
+  "exclude_drafts": false,
+  "limit": 10
+}

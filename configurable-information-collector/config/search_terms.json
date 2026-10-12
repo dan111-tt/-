@@ -1,0 +1,50 @@
+{
+  "countries": {
+    "香港": {"aliases":["Hong Kong","香港"],"native_terms":["法例","规例","宪报","招标","建筑","电讯","劳工","税务","环境"]},
+    "澳门": {"aliases":["Macao","Macau","澳门"],"native_terms":["法律","行政法规","公报","招标","工程","电信","劳动","税务"]},
+    "新加坡": {"aliases":["Singapore","新加坡"],"native_terms":["Act","Regulations","Gazette","procurement","construction","telecommunications","employment","tax"]},
+    "印度尼西亚": {"aliases":["Indonesia","Indonesia (Republik Indonesia)","印尼"],"native_terms":["undang-undang","peraturan","peraturan menteri","warta negara","pengadaan","konstruksi","telekomunikasi","tenaga kerja","pajak","lingkungan"]},
+    "马来西亚": {"aliases":["Malaysia","马来西亚"],"native_terms":["akta","peraturan","warta kerajaan","perolehan kerajaan","pembinaan","telekomunikasi","pekerjaan","cukai","alam sekitar"]},
+    "菲律宾": {"aliases":["Philippines","菲律宾"],"native_terms":["Republic Act","Executive Order","Official Gazette","procurement","construction","telecommunications","labor","tax"]},
+    "泰国": {"aliases":["Thailand","ไทย","泰国"],"native_terms":["กฎหมาย","กฎกระทรวง","ราชกิจจานุเบกษา","จัดซื้อจัดจ้าง","ก่อสร้าง","โทรคมนาคม","แรงงาน","ภาษี","สิ่งแวดล้อม"]},
+    "缅甸": {"aliases":["Myanmar","Burma","缅甸"],"native_terms":["law","rule","notification","tender","construction","telecommunications","employment","tax"]},
+    "沙特阿拉伯": {"aliases":["Saudi Arabia","Kingdom of Saudi Arabia","沙特"],"native_terms":["نظام","لائحة","قرار","الجريدة الرسمية","مناقصات","إنشاءات","اتصالات","عمل","ضريبة","استثمار"]},
+    "阿联酋": {"aliases":["United Arab Emirates","UAE","الإمارات العربية المتحدة","阿联酋"],"native_terms":["مرسوم بقانون","قرار مجلس الوزراء","الجريدة الرسمية","مناقصات","إنشاءات","اتصالات","عمل","ضريبة","استثمار"]},
+    "赞比亚": {"aliases":["Zambia","赞比亚"],"native_terms":["Act","Statutory Instrument","Government Gazette","procurement","construction","telecommunications","employment","tax"]},
+    "南非": {"aliases":["South Africa","Republic of South Africa","南非"],"native_terms":["Act","Regulations","Government Gazette","procurement","construction","electronic communications","labour","tax","environment"]},
+    "尼日利亚": {"aliases":["Nigeria","Federal Republic of Nigeria","尼日利亚"],"native_terms":["Act","Regulations","Official Gazette","procurement","construction","telecommunications","labour","tax","environment"]},
+    "科特迪瓦": {"aliases":["Côte d'Ivoire","Cote d'Ivoire","Ivory Coast","科特迪瓦"],"native_terms":["loi","décret","arrêté","Journal officiel","marchés publics","construction","télécommunications","travail","fiscalité","environnement"]},
+    "刚果（金）": {"aliases":["Democratic Republic of the Congo","DR Congo","DRC","République démocratique du Congo","刚果（金）"],"native_terms":["loi","décret","ordonnance","Journal officiel","marchés publics","construction","télécommunications","travail","fiscalité","environnement"]},
+    "巴西": {"aliases":["Brazil","Brasil","巴西"],"native_terms":["lei","decreto","portaria","Diário Oficial","licitação","obras","telecomunicações","trabalho","tributação","ambiental"]},
+    "俄罗斯": {"aliases":["Russia","Russian Federation","Россия","俄罗斯"],"native_terms":["закон","постановление","приказ","официальное опубликование","закупки","строительство","связь","труд","налог","инвестиции"]}
+  },
+  "topics": {
+    "建设工程与基础设施": ["construction","infrastructure","public works","building safety","contractor","engineering","rail","road","grid capacity","строительство","construction","construção","ก่อสร้าง"],
+    "通信与数字基础设施": ["telecommunications","electronic communications","ICT","broadband","spectrum","network infrastructure","telecom","télécommunications","telecomunicações","โทรคมนาคม"],
+    "招投标与政府采购": ["public procurement","government procurement","tender","bidding","public contract","marchés publics","licitação","จัดซื้อจัดจ้าง"],
+    "外国投资与公司经营": ["foreign investment","foreign ownership","investment screening","company law","business licensing","FDI","investissement étranger","investimento estrangeiro"],
+    "劳动与用工": ["employment","labor","labour","foreign worker","work permit","minimum wage","occupational safety","travail","trabalho","แรงงาน"],
+    "财税与金融": ["tax","corporate tax","VAT","withholding tax","tax administration","financial regulation","fiscalité","tributação","ภาษี"],
+    "环保与廉洁合规": ["environmental law","environmental permit","environmental assessment","anti-bribery","anti-corruption","compliance","environnement","ambiental"]
+  },
+  "legal_signals": ["law","act","regulation","decree","order","rule","statutory instrument","gazette","legislation","ordinance","notification","loi","décret","arrêté","Journal officiel","undang-undang","peraturan","กฎหมาย","ราชกิจจานุเบกษา","نظام","لائحة","закон","постановление","lei","decreto"],
+  "legal_by_country": {
+    "香港": ["法例", "规例", "宪报"],
+    "澳门": ["法律", "行政法规", "公报"],
+    "新加坡": ["Act", "Regulations", "Gazette", "legislation"],
+    "印度尼西亚": ["undang-undang", "peraturan", "peraturan menteri", "warta negara"],
+    "马来西亚": ["akta", "peraturan", "warta kerajaan"],
+    "菲律宾": ["Republic Act", "Executive Order", "Official Gazette"],
+    "泰国": ["กฎหมาย", "กฎกระทรวง", "ราชกิจจานุเบกษา"],
+    "缅甸": ["law", "rule", "notification", "gazette"],
+    "沙特阿拉伯": ["نظام", "لائحة", "قرار", "الجريدة الرسمية"],
+    "阿联酋": ["مرسوم بقانون", "قرار مجلس الوزراء", "الجريدة الرسمية"],
+    "赞比亚": ["Act", "Statutory Instrument", "Government Gazette"],
+    "南非": ["Act", "Regulations", "Government Gazette"],
+    "尼日利亚": ["Act", "Regulations", "Official Gazette"],
+    "科特迪瓦": ["loi", "décret", "arrêté", "Journal officiel"],
+    "刚果（金）": ["loi", "décret", "ordonnance", "Journal officiel"],
+    "巴西": ["lei", "decreto", "portaria", "Diário Oficial"],
+    "俄罗斯": ["закон", "постановление", "приказ", "официальное опубликование"]
+  }
+}

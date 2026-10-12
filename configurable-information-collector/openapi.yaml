@@ -1,0 +1,158 @@
+openapi: 3.1.0
+info:
+  title: Configurable Information Collector
+  version: 0.3.0
+servers:
+  - url: https://YOUR-PUBLIC-HOST
+security:
+  - ApiKeyAuth: []
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+paths:
+  /health:
+    get:
+      operationId: health
+      security: []
+      summary: Check service availability
+      responses:
+        '200': {description: Service status}
+  /sources:
+    get:
+      operationId: listSources
+      summary: List optional seed sources from the bundled catalog
+      parameters:
+        - in: query
+          name: region
+          schema: {type: string}
+        - in: query
+          name: country
+          schema: {type: string}
+          deprecated: true
+      responses:
+        '200': {description: Configured sources}
+  /research:
+    post:
+      operationId: researchNews
+      summary: Collect public information using user-defined task parameters
+      description: Searches by user-supplied industries, collection scope, regions, dates, and optional source domains. Results are candidates; coverage logs describe search activity and do not certify completeness.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [start_date, end_date]
+              properties:
+                task_name: {type: string, default: 资讯收集任务}
+                start_date: {type: string, format: date}
+                end_date: {type: string, format: date}
+                regions: {type: array, items: {type: string}, description: Countries, regions, markets, or other geographic scope supplied for this task}
+                industry_fields: {type: array, items: {type: string}, description: User-defined industries or fields}
+                collection_scope: {type: array, items: {type: string}, description: User-defined subjects, questions, entities, or information types}
+                keywords: {type: array, items: {type: string}}
+                source_domains: {type: array, items: {type: string}, description: Optional allowed hostnames supplied for this task}
+                source_urls: {type: array, items: {type: string, format: uri}, description: Optional user-provided seed pages}
+                exclude_terms: {type: array, items: {type: string}}
+                exclude_drafts: {type: boolean, default: false}
+                countries: {type: array, items: {type: string}, description: Deprecated compatibility field; use regions}
+                topics: {type: array, items: {type: string}, description: Deprecated compatibility field; use collection_scope}
+                urls: {type: array, items: {type: string, format: uri}}
+                limit:
+                  type: integer
+                  minimum: 1
+                  maximum: 30
+                  default: 10
+                  description: Maximum candidate items returned per region after discovery, not a global result cap.
+      responses:
+        '200':
+          description: Candidate information, publication-date evidence, per-region coverage, and exclusions
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  period: {type: object, description: Requested date range and publication-date basis}
+                  search_enabled: {type: boolean}
+                  query_count: {type: integer}
+                  searched_urls: {type: integer}
+                  count: {type: integer}
+                  limit_per_region: {type: integer}
+                  task: {type: object, additionalProperties: true, description: Resolved industries, scope, regions, and keywords}
+                  coverage_by_region: {type: object, additionalProperties: true, description: Search activity and no-hit status by region}
+                  coverage_by_country: {type: object, additionalProperties: true, description: Deprecated compatibility alias}
+                  query_log: {type: array, items: {type: object, additionalProperties: true}}
+                  excluded_examples: {type: array, items: {type: object, additionalProperties: true}}
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        country: {type: string}
+                        region: {type: string}
+                        industry: {type: string}
+                        title: {type: string}
+                        url: {type: string, format: uri}
+                        published_date: {type: string}
+                        date_basis: {type: string}
+                        date_status: {type: string}
+                        topic: {type: string}
+                        status: {type: string}
+                        draft_signal: {type: boolean}
+                        draft_signal_in_title: {type: boolean}
+                        source_level: {type: string}
+                        source_name: {type: string}
+                        page_fetched: {type: boolean}
+                        excerpt: {type: string}
+  /reports:
+    post:
+      operationId: createReport
+      summary: Create a Word information report from reviewed items
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [period, items]
+              properties:
+                title: {type: string}
+                period: {type: string}
+                updated_at: {type: string}
+                items:
+                  type: array
+                  items:
+                    type: object
+                    required: [title, summary]
+                    properties:
+                      region: {type: string}
+                      country: {type: string}
+                      industry: {type: string}
+                      topic: {type: string}
+                      title: {type: string}
+                      summary: {type: string}
+                      published_date: {type: string}
+                      status: {type: string}
+                      approved: {type: boolean, default: false}
+                      sources: {type: array, items: {type: string, format: uri}}
+      responses:
+        '200': {description: Report ID and download URL}
+  /reports/{report_id}/file:
+    get:
+      operationId: downloadReport
+      security: []
+      summary: Download a generated Word report using its report link
+      parameters:
+        - in: path
+          name: report_id
+          required: true
+          schema: {type: string}
+      responses:
+        '200':
+          description: Word report
+          content:
+            application/vnd.openxmlformats-officedocument.wordprocessingml.document:
+              schema: {type: string, format: binary}

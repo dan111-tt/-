@@ -1,0 +1,16 @@
+{
+  "window": ["2025-11-30", "2025-12-31"],
+  "expected_in_window": [
+    {"country": "Hong Kong", "title": "Practice Note 85", "published_date": "2025-12-19"},
+    {"country": "South Africa", "title": "Grid Capacity Allocation Rules", "published_date": "2025-12-24"},
+    {"country": "Zambia", "title": "Income Tax Amendment (No. 2) Act", "published_date": "2025-12-30"},
+    {"country": "Côte d'Ivoire", "title": "2026 Tax Annex", "published_date": "2025-12-31"},
+    {"country": "Malaysia", "title": "Gig Workers Act 2025", "published_date": "2025-12-31"},
+    {"country": "Russia", "title": "Russia–China Treaty", "published_date": "2025-12-01"}
+  ],
+  "expected_excluded": [
+    {"country": "Philippines", "title": "Minimum Wage Bill (Draft)", "published_date": "2025-12-15", "reason": "draft"},
+    {"country": "Thailand", "title": "Climate Law Draft Bill", "published_date": "2025-12-20", "reason": "draft"},
+    {"country": "Indonesia", "title": "Industry Ministry Regulation 35/2025", "published_date": "2025-09-11", "effective_date": "2025-12-11", "reason": "publication date outside requested window"}
+  ]
+}
